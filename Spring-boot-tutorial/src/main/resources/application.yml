@@ -1,0 +1,149 @@
+
+#spring:
+#  profiles:
+#    active: dev
+#
+#
+#
+#---
+#spring:
+#  config:
+#    activate:
+#      on-profile: dev
+#
+#  datasource:
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    username: root
+#    url: jdbc:mysql://localhost:3306/dcbapp
+#    password: root
+#  application:
+#    name: Spring-boot-tutorial
+#  sql:
+#    init:
+#      platform: mysql
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
+#    show-sql: 'true'
+#welcome:
+#  message: welcome to daily code buffer
+#---
+#spring:
+#  profiles: qa
+#  datasource:
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    username: root
+#    url: jdbc:mysql://localhost:3306/dcbapp-qa
+#    password: root
+#
+#  sql:
+#    init:
+#      platform: mysql
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
+#    show-sql: 'true'
+#welcome:
+#  message: welcome to daily code buffer
+#---
+#  spring:
+#    profiles: prod
+#    datasource:
+#      driver-class-name: com.mysql.cj.jdbc.Driver
+#      username: root
+#      url: jdbc:mysql://localhost:3306/dcbapp-prod
+#      password: root
+#
+#    sql:
+#      init:
+#        platform: mysql
+#    jpa:
+#      hibernate:
+#        ddl-auto: update
+#      show-sql: 'true'
+#  welcome:
+#    message: welcome to daily code buffer
+spring:
+  profiles:
+    active:  dev # This selects the active profile when the app starts
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: dev
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    url: jdbc:mysql://localhost:3306/dcbapp
+    password: root
+  application:
+    name: Spring-boot-tutorial
+  sql:
+    init:
+      platform: mysql
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: 'true'
+welcome:
+  message: welcome to daily code buffer
+  management:
+    endpoints:
+      web:
+        exposure:
+          include=*:
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: qa
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    url: jdbc:mysql://localhost:3306/dcbapp-qa
+    password: root
+  sql:
+    init:
+      platform: mysql
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: 'true'
+welcome:
+  message: welcome to daily code buffer
+#
+#  management:
+#     endpoints:
+#       web:
+#         exposure:
+#           include:"*"
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include=*:
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: prod
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    url: jdbc:mysql://localhost:3306/dcbapp-prod
+    password: root
+  sql:
+    init:
+      platform: mysql
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: 'true'
+welcome:
+  message: welcome to daily code buffer
